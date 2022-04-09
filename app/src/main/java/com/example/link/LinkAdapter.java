@@ -26,6 +26,7 @@ public class LinkAdapter extends ArrayAdapter<LinkData> {
         try {
             ((TextView)view.findViewById(R.id.lbl_name)).setText(obj.siteName);
             ((TextView)view.findViewById(R.id.lbl_url)).setText(obj.url);
+            ((TextView)view.findViewById(R.id.lbl_grade)).setText(obj.gradeName);
             ((TextView)view.findViewById(R.id.lbl_date)).setText(obj.time);
             if(obj.photos.size()>0){
                 ((ImageView)view.findViewById(R.id.img_photo)).setImageBitmap(obj.photos.get(0));

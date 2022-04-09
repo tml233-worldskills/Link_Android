@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                         linkData.siteName = linkDataObj.getString("siteName");
                         linkData.url = linkDataObj.getString("url");
                         linkData.gradeId = linkDataObj.getInt("gradeId");
+                        linkData.gradeName = linkDataObj.getString("gradeName");
                         linkData.beizhu = linkDataObj.getString("beizhu");
                         linkData.time = linkDataObj.getString("time");
                         linkData.photos = new ArrayList<>();
