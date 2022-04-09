@@ -84,7 +84,7 @@ public class AddActivity extends AppCompatActivity {
         Future<String> gradesJsonFuture=Utils.threadPool.submit(new Callable<String>() {
             @Override
             public String call() {
-                return Utils.sendGet(Utils.baseURL+"/grades");
+                return Utils.sendGet(Utils.baseURL+"/Session1/GetGrades");
             }
         });
         Future<String> linkJsonFuture=null;
@@ -92,7 +92,7 @@ public class AddActivity extends AppCompatActivity {
             linkJsonFuture=Utils.threadPool.submit(new Callable<String>() {
                 @Override
                 public String call() throws Exception {
-                    return Utils.sendGet(Utils.baseURL + "/links/" + editingId);
+                    return Utils.sendGet(Utils.baseURL + "/Session1/GetLink/" + editingId);
                 }
             });
         }
@@ -233,9 +233,9 @@ public class AddActivity extends AppCompatActivity {
                         try {
                             String jsonStr;
                             if(editingId<0) {
-                                jsonStr = Utils.sendPost(Utils.baseURL+"/links", body);
+                                jsonStr = Utils.sendPost(Utils.baseURL+"/Session1/AddLink", body);
                             }else{
-                                jsonStr = Utils.sendPut(Utils.baseURL+"/links/"+editingId, body);
+                                jsonStr = Utils.sendPost(Utils.baseURL+"/Session1/EditLink/"+editingId, body);
                             }
                             JSONObject jsonObj=new JSONObject(jsonStr);
                             System.out.println(jsonObj.toString());

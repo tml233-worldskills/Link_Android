@@ -66,12 +66,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    String linkIdsJson=Utils.sendGet(searchText==null?Utils.baseURL + "/links":Utils.baseURL + "/links?name="+searchText);
+                    String linkIdsJson=Utils.sendGet(Utils.baseURL + "/Session1/GetLinks"+(searchText==null?"":"?name="+searchText));
                     JSONObject resultObj=new JSONObject(linkIdsJson);
                     JSONArray idArr=resultObj.getJSONArray("data");
                     for(int i=0;i<idArr.length();i+=1) {
                         int id = idArr.getInt(i);
-                        String linkJson = Utils.sendGet(Utils.baseURL+"/links/" + id+"?limited-photo=1");
+                        String linkJson = Utils.sendGet(Utils.baseURL+"/Session1/GetLink/" + id+"?limited-photo=1");
                         JSONObject linkObj = new JSONObject(linkJson);
                         JSONObject linkDataObj = linkObj.getJSONObject("data");
                         LinkData linkData = new LinkData();
